@@ -75,4 +75,12 @@ export class ContactSectionComponent {
       parent.classList.add('show-skeleton');
     }
   }
+
+  onImageLoad(event: Event) {
+    const target = event.target as HTMLImageElement;
+    const parent = target.parentElement;
+    if (parent) {
+      parent.classList.add('image-loaded');
+    }
+  }
 }

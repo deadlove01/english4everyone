@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { map, delay } from 'rxjs/operators';
+import { map, delay, catchError } from 'rxjs/operators';
 import { IeltsTest, PaginationInfo, FilterOptions } from '../models/interfaces';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class TestService {
   constructor(private http: HttpClient) { }
 
   getTests(filters?: FilterOptions, page: number = 1, pageSize: number = 6): Observable<{tests: IeltsTest[], pagination: PaginationInfo}> {
-    return this.http.get<{tests: IeltsTest[], pagination: PaginationInfo}>(this.testsUrl).pipe(
+    return this.http.get<{tests: IeltsTest[]}>(this.testsUrl).pipe(
       map(data => {
         let filteredTests = [...data.tests];
 
@@ -74,6 +74,19 @@ export class TestService {
           tests: paginatedTests,
           pagination
         };
+      }),
+      catchError(error => {
+        console.error('Error fetching tests:', error);
+        // Return empty result on error
+        return of({
+          tests: [],
+          pagination: {
+            totalItems: 0,
+            itemsPerPage: pageSize,
+            currentPage: page,
+            totalPages: 0
+          }
+        });
       }),
       delay(300) // Simulate network delay
     );

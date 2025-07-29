@@ -127,7 +127,7 @@
                [alt]="'Study environment ' + (i + 1)"
                class="gallery-image"
                (error)="onImageError($event)"
-               (load)="$event.target.parentElement.classList.add('image-loaded')">
+               (load)="onImageLoad($event)">
           <div class="gallery-overlay">
             <mat-icon>zoom_in</mat-icon>
           </div>

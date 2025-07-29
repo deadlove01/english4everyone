@@ -53,6 +53,19 @@ export class TestCardComponent {
 
   onImageError(event: Event) {
     const target = event.target as HTMLImageElement;
-    target.src = 'assets/images/default-test.jpg';
+    const parent = target.parentElement;
+    if (parent) {
+      // Hide the image and show skeleton
+      target.style.display = 'none';
+      parent.classList.add('show-skeleton');
+    }
+  }
+
+  onImageLoad(event: Event) {
+    const target = event.target as HTMLImageElement;
+    const parent = target.parentElement;
+    if (parent) {
+      parent.classList.add('image-loaded');
+    }
   }
 }

@@ -2,10 +2,12 @@
   <!-- Card Header with Thumbnail -->
   <div class="card-header">
     <div class="thumbnail-container">
+      <div class="image-skeleton"></div>
       <img [src]="test.thumbnailUrl" 
            [alt]="test.title" 
            class="thumbnail"
-           (error)="onImageError($event)">
+           (error)="onImageError($event)"
+           (load)="onImageLoad($event)">
       <div class="overlay">
         <button mat-fab 
                 color="accent" 

@@ -331,6 +331,16 @@ a {
     }
 }
 
+@keyframes loading {
+    0% {
+        background-position: -200px 0;
+    }
+
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
 .fade-in {
     animation: fadeIn 0.5s ease-out;
 }
@@ -349,6 +359,41 @@ select:focus {
     outline-offset: 2px;
 }
 
+// Skeleton loading utilities
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, rgba(255, 255, 255, 0.5) 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: var(--radius-sm);
+}
+
+.skeleton-text {
+    height: 1em;
+    margin-bottom: 0.5em;
+
+    &:last-child {
+        margin-bottom: 0;
+        width: 60%;
+    }
+}
+
+.skeleton-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.skeleton-card {
+    height: 200px;
+    width: 100%;
+}
+
+.skeleton-button {
+    height: 36px;
+    width: 120px;
+    border-radius: var(--radius-full);
+}
+
 // Print styles
 @media print {
     * {
@@ -357,14 +402,4 @@ select:focus {
         box-shadow: none !important;
         text-shadow: none !important;
     }
-}
-
-html,
-body {
-    height: 100%;
-}
-
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
