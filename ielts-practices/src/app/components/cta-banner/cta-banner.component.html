@@ -1,0 +1,85 @@
+<section class="cta-banner" [@bannerAnimation]>
+  <div class="banner-background">
+    <div class="background-pattern"></div>
+  </div>
+  
+  <div class="banner-content">
+    <div class="container">
+      <!-- Main CTA Section -->
+      <div class="cta-main">
+        <div class="cta-text">
+          <h2 class="cta-title">
+            Ready to Boost Your IELTS Score?
+          </h2>
+          <p class="cta-subtitle">
+            Join thousands of successful students who've improved their IELTS scores with our comprehensive practice platform.
+          </p>
+        </div>
+        
+        <div class="cta-actions">
+          <button mat-raised-button 
+                  color="accent" 
+                  class="primary-cta">
+            <mat-icon>rocket_launch</mat-icon>
+            Start Free Trial
+          </button>
+          
+          <button mat-stroked-button 
+                  class="secondary-cta">
+            <mat-icon>info</mat-icon>
+            Learn More
+          </button>
+        </div>
+      </div>
+
+      <!-- Features Grid -->
+      <div class="features-grid">
+        <div class="feature-card" *ngFor="let feature of features">
+          <div class="feature-icon">
+            <mat-icon>{{feature.icon}}</mat-icon>
+          </div>
+          <div class="feature-content">
+            <h3 class="feature-title">{{feature.title}}</h3>
+            <p class="feature-description">{{feature.description}}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust Indicators -->
+      <div class="trust-section">
+        <div class="trust-stats">
+          <div class="trust-item">
+            <span class="trust-number">50,000+</span>
+            <span class="trust-label">Happy Students</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-number">95%</span>
+            <span class="trust-label">Success Rate</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-number">4.9★</span>
+            <span class="trust-label">Average Rating</span>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <blockquote>
+            "This platform helped me improve my IELTS score from 6.5 to 8.0 in just 3 months!"
+          </blockquote>
+          <cite>- Sarah Chen, Software Engineer</cite>
+        </div>
+      </div>
+
+      <!-- Special Offer -->
+      <div class="special-offer">
+        <div class="offer-badge">
+          <mat-icon>local_offer</mat-icon>
+          <span>Limited Time Offer</span>
+        </div>
+        <p class="offer-text">
+          Get 30% off your first month with code <strong>IELTS30</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

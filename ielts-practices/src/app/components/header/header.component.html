@@ -1,0 +1,49 @@
+<mat-toolbar color="primary" class="header-toolbar">
+  <div class="toolbar-content">
+    <!-- Logo -->
+    <div class="logo-section">
+      <img [src]="logoUrl" alt="IELTS Practices" class="logo">
+      <span class="brand-text">IELTS Practices</span>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="nav-links" *ngIf="!(isHandset$ | async)">
+      <a mat-button 
+         *ngFor="let link of navLinks" 
+         [routerLink]="link.route" 
+         class="nav-link">
+        <mat-icon *ngIf="link.icon">{{link.icon}}</mat-icon>
+        {{link.label}}
+      </a>
+    </nav>
+
+    <!-- Desktop CTA Button -->
+    <button mat-raised-button 
+            color="accent" 
+            class="cta-button"
+            *ngIf="!(isHandset$ | async)">
+      {{ctaButtonText}}
+    </button>
+
+    <!-- Mobile Menu Button -->
+    <button mat-icon-button 
+            *ngIf="isHandset$ | async"
+            [matMenuTriggerFor]="mobileMenu"
+            class="mobile-menu-button">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+<!-- Mobile Menu -->
+<mat-menu #mobileMenu="matMenu" class="mobile-menu">
+  <a mat-menu-item 
+     *ngFor="let link of navLinks" 
+     [routerLink]="link.route">
+    <mat-icon *ngIf="link.icon">{{link.icon}}</mat-icon>
+    <span>{{link.label}}</span>
+  </a>
+  <button mat-menu-item class="mobile-cta">
+    {{ctaButtonText}}
+  </button>
+</mat-menu>

@@ -1,0 +1,116 @@
+<footer class="app-footer">
+  <!-- Main Footer Content -->
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-content">
+        <!-- Brand Section -->
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <mat-icon class="logo-icon">school</mat-icon>
+            <h3 class="brand-name">IELTS Practices</h3>
+          </div>
+          <p class="brand-description">
+            Master your IELTS exam with our comprehensive practice tests, expert guidance, and personalized feedback. 
+            Join thousands of successful students worldwide.
+          </p>
+          
+          <!-- Newsletter Subscription -->
+          <div class="newsletter-section">
+            <h4 class="newsletter-title">Stay Updated</h4>
+            <p class="newsletter-description">
+              Get the latest IELTS tips and practice materials delivered to your inbox.
+            </p>
+            <div class="newsletter-form">
+              <mat-form-field appearance="outline" class="email-field">
+                <mat-label>Enter your email</mat-label>
+                <input matInput 
+                       type="email" 
+                       [(ngModel)]="subscriberEmail"
+                       placeholder="your.email@example.com">
+              </mat-form-field>
+              <button mat-raised-button 
+                      color="accent" 
+                      (click)="onSubscribe()"
+                      class="subscribe-button">
+                <mat-icon>send</mat-icon>
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Links -->
+        <div class="footer-links">
+          <div class="link-section" *ngFor="let section of footerSections">
+            <h4 class="section-title">{{section.title}}</h4>
+            <ul class="link-list">
+              <li *ngFor="let link of section.links">
+                <a [routerLink]="link.route" class="footer-link">
+                  {{link.label}}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="bottom-content">
+        <!-- Copyright -->
+        <div class="copyright">
+          <p>&copy; {{currentYear}} IELTS Practices. All rights reserved.</p>
+        </div>
+
+        <!-- Social Links -->
+        <div class="social-links">
+          <span class="social-label">Follow us:</span>
+          <div class="social-icons">
+            <a *ngFor="let social of socialLinks" 
+               [href]="social.url" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               [matTooltip]="social.platform"
+               class="social-link">
+               <mat-icon>{{social.icon}}</mat-icon>
+            </a>
+          </div>
+        </div>
+
+        <!-- Additional Links -->
+        <div class="additional-links">
+          <a routerLink="/privacy" class="bottom-link">Privacy</a>
+          <a routerLink="/terms" class="bottom-link">Terms</a>
+          <a routerLink="/sitemap" class="bottom-link">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trust Badges -->
+  <div class="trust-badges">
+    <div class="container">
+      <div class="badges-content">
+        <div class="trust-item">
+          <mat-icon>verified</mat-icon>
+          <span>Certified Content</span>
+        </div>
+        <div class="trust-item">
+          <mat-icon>security</mat-icon>
+          <span>Secure Platform</span>
+        </div>
+        <div class="trust-item">
+          <mat-icon>support</mat-icon>
+          <span>24/7 Support</span>
+        </div>
+        <div class="trust-item">
+          <mat-icon>star</mat-icon>
+          <span>5-Star Rated</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

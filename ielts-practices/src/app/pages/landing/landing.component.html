@@ -1,0 +1,52 @@
+<div class="landing-page">
+  <!-- Header -->
+  <app-header 
+    [navLinks]="navLinks"
+    logoUrl="assets/images/logo.png"
+    ctaButtonText="Start Free Trial">
+  </app-header>
+
+  <!-- Hero Section -->
+  <app-hero 
+    title="Master IELTS with Expert Practice Tests"
+    subtitle="Improve your IELTS score with our comprehensive practice tests, detailed explanations, and personalized feedback designed by certified instructors."
+    ctaText="Start Practicing Now">
+  </app-hero>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+    <div class="container">
+      <div class="content-layout" [class.mobile-layout]="isHandset$ | async">
+        
+        <!-- Sidebar (Desktop) / Top Filter (Mobile) -->
+        <aside class="sidebar" [class.mobile-sidebar]="isHandset$ | async">
+          <app-sidebar-filter
+            (filterChange)="onFilterChange($event)"
+            (sortChange)="onSortChange($event)"
+            (searchChange)="onSearchChange($event)">
+          </app-sidebar-filter>
+        </aside>
+
+        <!-- Test Grid Area -->
+        <section class="test-grid-area">
+          <app-test-grid
+            [testList]="tests"
+            [paginationInfo]="paginationInfo"
+            [loading]="loading"
+            (pageChange)="onPageChange($event)"
+            (testStart)="onTestStart($event)">
+          </app-test-grid>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- CTA Banner -->
+  <app-cta-banner></app-cta-banner>
+
+  <!-- Contact Section -->
+  <app-contact-section></app-contact-section>
+
+  <!-- Footer -->
+  <app-footer></app-footer>
+</div>

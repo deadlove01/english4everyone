@@ -1,0 +1,98 @@
+{
+  "tests": [
+    {
+      "id": 1,
+      "title": "IELTS Academic Reading Practice Test 1",
+      "thumbnailUrl": "assets/images/reading-test-1.jpg",
+      "badgeText": "Academic",
+      "viewCount": 15420,
+      "type": "reading",
+      "difficulty": "intermediate",
+      "duration": 60,
+      "description": "Practice your academic reading skills with authentic IELTS passages"
+    },
+    {
+      "id": 2,
+      "title": "IELTS Listening Test - University Life",
+      "thumbnailUrl": "assets/images/listening-test-1.jpg",
+      "badgeText": "General",
+      "viewCount": 12330,
+      "type": "listening",
+      "difficulty": "beginner",
+      "duration": 40,
+      "description": "Improve your listening skills with real-life university scenarios"
+    },
+    {
+      "id": 3,
+      "title": "IELTS Writing Task 1 - Data Analysis",
+      "thumbnailUrl": "assets/images/writing-test-1.jpg",
+      "badgeText": "Academic",
+      "viewCount": 9876,
+      "type": "writing",
+      "difficulty": "advanced",
+      "duration": 20,
+      "description": "Master data interpretation and description for IELTS Writing Task 1"
+    },
+    {
+      "id": 4,
+      "title": "IELTS Speaking Part 2 - Personal Topics",
+      "thumbnailUrl": "assets/images/speaking-test-1.jpg",
+      "badgeText": "General",
+      "viewCount": 8945,
+      "type": "speaking",
+      "difficulty": "intermediate",
+      "duration": 15,
+      "description": "Practice speaking about personal experiences and preferences"
+    },
+    {
+      "id": 5,
+      "title": "IELTS Academic Reading - Science & Technology",
+      "thumbnailUrl": "assets/images/reading-test-2.jpg",
+      "badgeText": "Academic",
+      "viewCount": 11567,
+      "type": "reading",
+      "difficulty": "advanced",
+      "duration": 60,
+      "description": "Challenge yourself with complex scientific passages"
+    },
+    {
+      "id": 6,
+      "title": "IELTS General Writing - Formal Letters",
+      "thumbnailUrl": "assets/images/writing-test-2.jpg",
+      "badgeText": "General",
+      "viewCount": 7234,
+      "type": "writing",
+      "difficulty": "intermediate",
+      "duration": 20,
+      "description": "Learn to write effective formal letters for various purposes"
+    },
+    {
+      "id": 7,
+      "title": "IELTS Listening - Academic Lectures",
+      "thumbnailUrl": "assets/images/listening-test-2.jpg",
+      "badgeText": "Academic",
+      "viewCount": 13456,
+      "type": "listening",
+      "difficulty": "advanced",
+      "duration": 40,
+      "description": "Practice with authentic university lecture recordings"
+    },
+    {
+      "id": 8,
+      "title": "IELTS Speaking - Opinion & Discussion",
+      "thumbnailUrl": "assets/images/speaking-test-2.jpg",
+      "badgeText": "General",
+      "viewCount": 6789,
+      "type": "speaking",
+      "difficulty": "intermediate",
+      "duration": 15,
+      "description": "Develop skills for expressing and defending your opinions"
+    }
+  ],
+  "pagination": {
+    "totalItems": 8,
+    "itemsPerPage": 6,
+    "currentPage": 1,
+    "totalPages": 2
+  }
+}

@@ -1,0 +1,89 @@
+<mat-card class="test-card" [@cardHover]>
+  <!-- Card Header with Thumbnail -->
+  <div class="card-header">
+    <div class="thumbnail-container">
+      <img [src]="test.thumbnailUrl" 
+           [alt]="test.title" 
+           class="thumbnail"
+           (error)="onImageError($event)">
+      <div class="overlay">
+        <button mat-fab 
+                color="accent" 
+                class="play-button"
+                (click)="onStartTest()"
+                matTooltip="Start Test">
+          <mat-icon>play_arrow</mat-icon>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Badge -->
+    <div class="badge-container" *ngIf="test.badgeText">
+      <mat-chip [style.background-color]="getDifficultyColor(test.difficulty)"
+                class="test-badge">
+        {{test.badgeText}}
+      </mat-chip>
+    </div>
+  </div>
+
+  <!-- Card Content -->
+  <mat-card-content class="card-content">
+    <div class="test-meta">
+      <div class="test-type">
+        <mat-icon class="type-icon">{{getTypeIcon(test.type)}}</mat-icon>
+        <span class="type-text">{{test.type | titlecase}}</span>
+      </div>
+      <div class="test-duration">
+        <mat-icon>schedule</mat-icon>
+        <span>{{test.duration}} min</span>
+      </div>
+    </div>
+
+    <h3 class="test-title" [matTooltip]="test.title">
+      {{test.title}}
+    </h3>
+
+    <p class="test-description">
+      {{test.description}}
+    </p>
+
+    <div class="difficulty-indicator">
+      <span class="difficulty-label">Difficulty:</span>
+      <mat-chip [style.background-color]="getDifficultyColor(test.difficulty)"
+                [style.color]="'white'"
+                class="difficulty-chip">
+        {{test.difficulty | titlecase}}
+      </mat-chip>
+    </div>
+  </mat-card-content>
+
+  <!-- Card Actions -->
+  <mat-card-actions class="card-actions">
+    <div class="view-count">
+      <mat-icon>visibility</mat-icon>
+      <span>{{formatViewCount(test.viewCount)}} views</span>
+    </div>
+    
+    <div class="action-buttons">
+      <button mat-icon-button 
+              matTooltip="Add to Favorites"
+              color="primary">
+        <mat-icon>favorite_border</mat-icon>
+      </button>
+      
+      <button mat-icon-button 
+              matTooltip="Share Test"
+              color="primary">
+        <mat-icon>share</mat-icon>
+      </button>
+      
+      <button mat-raised-button 
+              color="primary"
+              (click)="onStartTest()"
+              class="start-button">
+        <mat-icon>play_arrow</mat-icon>
+        Start Test
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>

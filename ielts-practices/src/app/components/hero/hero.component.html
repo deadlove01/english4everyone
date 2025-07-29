@@ -1,0 +1,48 @@
+<section class="hero-section" [@heroAnimation]>
+  <div class="hero-background">
+    <div class="hero-overlay"></div>
+  </div>
+  
+  <div class="hero-content">
+    <div class="container">
+      <h1 class="hero-title">{{title}}</h1>
+      <p class="hero-subtitle">{{subtitle}}</p>
+      
+      <div class="hero-actions">
+        <button mat-raised-button 
+                color="accent" 
+                class="primary-cta">
+          {{ctaText}}
+          <mat-icon>arrow_forward</mat-icon>
+        </button>
+        
+        <button mat-stroked-button 
+                color="primary" 
+                class="secondary-cta">
+          <mat-icon>play_circle</mat-icon>
+          Watch Demo
+        </button>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">50,000+</span>
+          <span class="stat-label">Students Helped</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">1000+</span>
+          <span class="stat-label">Practice Questions</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">4.9/5</span>
+          <span class="stat-label">Average Rating</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator">
+    <mat-icon>keyboard_arrow_down</mat-icon>
+  </div>
+</section>

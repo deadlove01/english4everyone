@@ -1,0 +1,81 @@
+<div class="test-grid-container">
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading-container">
+    <mat-spinner diameter="50"></mat-spinner>
+    <p class="loading-text">Loading tests...</p>
+  </div>
+
+  <!-- Grid Header -->
+  <div *ngIf="!loading && testList.length > 0" class="grid-header">
+    <div class="results-info">
+      <h2 class="section-title">
+        <mat-icon>quiz</mat-icon>
+        Practice Tests
+      </h2>
+      <p class="results-count">
+        Showing {{(paginationInfo.currentPage - 1) * paginationInfo.itemsPerPage + 1}} - 
+        {{Math.min(paginationInfo.currentPage * paginationInfo.itemsPerPage, paginationInfo.totalItems)}} 
+        of {{paginationInfo.totalItems}} tests
+      </p>
+    </div>
+
+    <div class="view-options">
+      <button mat-icon-button matTooltip="Grid View" class="view-button active">
+        <mat-icon>grid_view</mat-icon>
+      </button>
+      <button mat-icon-button matTooltip="List View" class="view-button">
+        <mat-icon>view_list</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- Test Grid -->
+  <div *ngIf="!loading && testList.length > 0" 
+       class="test-grid" 
+       [@listAnimation]="testList.length">
+    <app-test-card 
+      *ngFor="let test of testList; trackBy: trackByTestId"
+      [test]="test"
+      (startTest)="onTestStart($event)"
+      class="grid-item">
+    </app-test-card>
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="!loading && testList.length === 0" class="empty-state">
+    <mat-icon class="empty-icon">search_off</mat-icon>
+    <h3 class="empty-title">No tests found</h3>
+    <p class="empty-message">
+      Try adjusting your search criteria or filters to find the tests you're looking for.
+    </p>
+    <button mat-raised-button color="primary" class="reset-button">
+      <mat-icon>refresh</mat-icon>
+      Reset Filters
+    </button>
+  </div>
+
+  <!-- Pagination -->
+  <div *ngIf="!loading && testList.length > 0 && paginationInfo.totalPages > 1" 
+       class="pagination-container">
+    <mat-paginator 
+      [length]="paginationInfo.totalItems"
+      [pageSize]="paginationInfo.itemsPerPage"
+      [pageIndex]="paginationInfo.currentPage - 1"
+      [pageSizeOptions]="[6, 12, 24]"
+      [showFirstLastButtons]="true"
+      (page)="onPageChange($event)"
+      class="custom-paginator">
+    </mat-paginator>
+  </div>
+
+  <!-- Quick Actions -->
+  <div *ngIf="!loading && testList.length > 0" class="quick-actions">
+    <button mat-fab 
+            color="accent" 
+            class="scroll-top-button"
+            matTooltip="Scroll to top"
+            (click)="scrollToTop()">
+      <mat-icon>keyboard_arrow_up</mat-icon>
+    </button>
+  </div>
+</div>

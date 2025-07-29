@@ -1,0 +1,102 @@
+<div class="sidebar-filter" [formGroup]="filterForm">
+  <!-- Search Bar -->
+  <div class="filter-section">
+    <h3 class="section-title">
+      <mat-icon>search</mat-icon>
+      Search Tests
+    </h3>
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Search by title or keyword</mat-label>
+      <input matInput 
+             formControlName="searchTerm" 
+             placeholder="e.g., Academic Reading">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <!-- Test Type Filter -->
+  <div class="filter-section">
+    <h3 class="section-title">
+      <mat-icon>category</mat-icon>
+      Test Types
+    </h3>
+    <div class="checkbox-group">
+      <mat-checkbox 
+        *ngFor="let type of testTypes; let i = index"
+        [checked]="selectedTypesArray.at(i).value"
+        (change)="onTypeChange(i, $event.checked)"
+        class="type-checkbox">
+        <div class="checkbox-content">
+          <mat-icon class="type-icon">{{type.icon}}</mat-icon>
+          <span>{{type.label}}</span>
+        </div>
+      </mat-checkbox>
+    </div>
+  </div>
+
+  <!-- Sort Options -->
+  <div class="filter-section">
+    <h3 class="section-title">
+      <mat-icon>sort</mat-icon>
+      Sort By
+    </h3>
+    <mat-form-field appearance="outline" class="sort-field">
+      <mat-label>Sort by</mat-label>
+      <mat-select formControlName="sortBy">
+        <mat-option *ngFor="let option of sortOptions" [value]="option.value">
+          {{option.label}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-radio-group formControlName="sortOrder" class="sort-order">
+      <mat-radio-button value="asc" class="sort-radio">
+        <div class="radio-content">
+          <mat-icon>arrow_upward</mat-icon>
+          <span>Ascending</span>
+        </div>
+      </mat-radio-button>
+      <mat-radio-button value="desc" class="sort-radio">
+        <div class="radio-content">
+          <mat-icon>arrow_downward</mat-icon>
+          <span>Descending</span>
+        </div>
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <!-- Clear Filters -->
+  <div class="filter-actions">
+    <button mat-stroked-button 
+            color="primary" 
+            (click)="clearFilters()"
+            class="clear-button">
+      <mat-icon>clear_all</mat-icon>
+      Clear All Filters
+    </button>
+  </div>
+
+  <!-- Quick Stats -->
+  <div class="filter-section">
+    <h3 class="section-title">
+      <mat-icon>analytics</mat-icon>
+      Quick Stats
+    </h3>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <mat-icon>quiz</mat-icon>
+        <div class="stat-info">
+          <span class="stat-number">1000+</span>
+          <span class="stat-label">Questions</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <mat-icon>people</mat-icon>
+        <div class="stat-info">
+          <span class="stat-number">50k+</span>
+          <span class="stat-label">Students</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

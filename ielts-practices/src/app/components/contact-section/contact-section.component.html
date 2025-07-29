@@ -1,0 +1,138 @@
+<section class="contact-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">
+        <mat-icon>contact_support</mat-icon>
+        Get in Touch
+      </h2>
+      <p class="section-subtitle">
+        Have questions? We're here to help you succeed in your IELTS journey.
+      </p>
+    </div>
+
+    <div class="contact-content">
+      <!-- Contact Methods -->
+      <div class="contact-methods">
+        <h3 class="subsection-title">Contact Information</h3>
+        <div class="methods-grid">
+          <div class="contact-card" *ngFor="let method of contactMethods">
+            <div class="contact-icon">
+              <mat-icon>{{method.icon}}</mat-icon>
+            </div>
+            <div class="contact-info">
+              <h4 class="contact-label">{{method.label}}</h4>
+              <p class="contact-value">{{method.value}}</p>
+              <button mat-stroked-button 
+                      color="primary" 
+                      class="contact-action">
+                Contact Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-section">
+        <h3 class="subsection-title">Send us a Message</h3>
+        <form class="contact-form">
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>First Name</mat-label>
+              <input matInput placeholder="Enter your first name" required>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Last Name</mat-label>
+              <input matInput placeholder="Enter your last name" required>
+            </mat-form-field>
+          </div>
+
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Email</mat-label>
+              <input matInput type="email" placeholder="your.email@example.com" required>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Phone</mat-label>
+              <input matInput type="tel" placeholder="+1 (555) 123-4567">
+            </mat-form-field>
+          </div>
+
+          <mat-form-field appearance="outline" class="form-field full-width">
+            <mat-label>Subject</mat-label>
+            <mat-select>
+              <mat-option value="general">General Inquiry</mat-option>
+              <mat-option value="technical">Technical Support</mat-option>
+              <mat-option value="billing">Billing Question</mat-option>
+              <mat-option value="feedback">Feedback</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="form-field full-width">
+            <mat-label>Message</mat-label>
+            <textarea matInput 
+                      rows="5" 
+                      placeholder="Tell us how we can help you..."
+                      required></textarea>
+          </mat-form-field>
+
+          <div class="form-actions">
+            <button mat-raised-button 
+                    color="primary" 
+                    type="submit"
+                    class="submit-button">
+              <mat-icon>send</mat-icon>
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section">
+      <h3 class="subsection-title">
+        <mat-icon>help</mat-icon>
+        Frequently Asked Questions
+      </h3>
+      
+      <div class="faq-list">
+        <div class="faq-item" *ngFor="let faq of faqs; let i = index">
+          <div class="faq-question" (click)="toggleFaq(i)">
+            <h4>{{faq.question}}</h4>
+            <mat-icon class="expand-icon" 
+                      [class.expanded]="faq.expanded">
+              expand_more
+            </mat-icon>
+          </div>
+          <div class="faq-answer" [class.expanded]="faq.expanded">
+            <p>{{faq.answer}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <div class="gallery-section">
+      <h3 class="subsection-title">
+        <mat-icon>photo_library</mat-icon>
+        Study Environment
+      </h3>
+      <div class="gallery-grid">
+        <div class="gallery-item" *ngFor="let image of galleryImages; let i = index">
+          <div class="image-skeleton"></div>
+          <img [src]="image" 
+               [alt]="'Study environment ' + (i + 1)"
+               class="gallery-image"
+               (error)="onImageError($event)"
+               (load)="$event.target.parentElement.classList.add('image-loaded')">
+          <div class="gallery-overlay">
+            <mat-icon>zoom_in</mat-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

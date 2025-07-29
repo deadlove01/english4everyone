@@ -1,0 +1,81 @@
+.header-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .toolbar-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 16px;
+    }
+
+    .logo-section {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .brand-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+        }
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .nav-link {
+            color: white;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+            mat-icon {
+                margin-right: 4px;
+            }
+        }
+    }
+
+    .cta-button {
+        font-weight: 600;
+        padding: 0 24px;
+    }
+
+    .mobile-menu-button {
+        color: white;
+    }
+}
+
+.mobile-menu {
+    .mobile-cta {
+        background-color: var(--mat-accent-500);
+        color: white;
+        font-weight: 600;
+    }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+    .header-toolbar .toolbar-content {
+        padding: 0 8px;
+    }
+
+    .logo-section .brand-text {
+        font-size: 1.2rem;
+    }
+}
